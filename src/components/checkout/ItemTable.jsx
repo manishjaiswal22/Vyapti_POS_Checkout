@@ -5,7 +5,7 @@ export default function ItemTable({ items, onUpdateQuantity, onRemove, onClearAl
   const totalItemCount = items.length
 
   return (
-    <div className="bg-white rounded-xl border border-[#DCE4EE] shadow-sm shadow-slate-200/50 flex flex-col flex-1 min-h-0 overflow-hidden">
+    <div className="bg-white rounded-xl border border-slate-200/90 shadow-[0_10px_25px_-3px_rgba(15,23,42,0.09),0_4px_6px_-4px_rgba(15,23,42,0.05)] hover:shadow-[0_14px_30px_-3px_rgba(15,23,42,0.12)] transition-shadow duration-200 flex flex-col flex-1 min-h-0 overflow-hidden">
       {/* Scrollable Table Area */}
       <div className="flex-1 min-h-[220px] lg:min-h-0 overflow-y-auto overflow-x-auto custom-scrollbar">
         <table className="w-full text-left border-collapse min-w-[560px] sm:min-w-[620px]">

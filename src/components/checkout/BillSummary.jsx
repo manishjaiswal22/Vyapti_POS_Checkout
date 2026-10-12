@@ -12,7 +12,7 @@ export default function BillSummary({ summary, onConfirm, onCancel }) {
   const { totalItems, subTotal, discount, tax, grandTotal } = summary
 
   return (
-    <div className="relative bg-gradient-to-b from-white via-[#F8FBFE] to-[#EEF5FC] rounded-2xl border border-[#CBDCEE] p-4 lg:p-5 shadow-lg shadow-slate-200/60 flex flex-col justify-between h-full overflow-hidden">
+    <div className="relative bg-gradient-to-b from-white via-[#F8FBFE] to-[#EEF5FC] rounded-2xl border border-[#CBDCEE] p-4 lg:p-5 shadow-[0_10px_25px_-3px_rgba(15,23,42,0.09),0_4px_6px_-4px_rgba(15,23,42,0.05)] hover:shadow-[0_14px_30px_-3px_rgba(15,23,42,0.12)] transition-shadow duration-200 flex flex-col justify-between h-full overflow-hidden">
       {/* Decorative ambient background glows */}
       <div className="absolute -top-16 -right-16 w-40 h-40 bg-sky-300/25 rounded-full blur-2xl pointer-events-none" />
       <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-indigo-200/30 rounded-full blur-2xl pointer-events-none" />
