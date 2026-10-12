@@ -66,9 +66,9 @@ export default function POSCheckout() {
 
   return (
     <>
-      <div className="flex-1 min-h-0 flex flex-col lg:flex-row gap-4 2xl:gap-6 lg:overflow-hidden lg:h-full w-full">
+      <div className="flex-1 min-h-0 flex flex-col lg:flex-row gap-4 2xl:gap-6 lg:h-full w-full py-1 pb-2">
         {/* Left Column: Tag Scanner + Table */}
-        <div className="flex-1 min-w-0 flex flex-col gap-2.5 2xl:gap-3.5 lg:h-full lg:overflow-hidden">
+        <div className="flex-1 min-w-0 flex flex-col gap-2.5 2xl:gap-3.5 lg:h-full">
           <TagScanner onScan={handleScan} />
           <ItemTable
             items={items}
@@ -79,7 +79,8 @@ export default function POSCheckout() {
         </div>
 
         {/* Right Column: Bill Summary Card */}
-        <div className="w-full lg:w-[360px] xl:w-[380px] 2xl:w-[420px] shrink-0 lg:h-full lg:overflow-hidden">
+        <div className="w-full lg:w-[360px] xl:w-[380px] 2xl:w-[420px] shrink-0 lg:h-full flex flex-col">
+
           <BillSummary
             summary={summary}
             onConfirm={handleConfirm}

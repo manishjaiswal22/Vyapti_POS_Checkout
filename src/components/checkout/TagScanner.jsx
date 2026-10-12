@@ -14,7 +14,7 @@ export default function TagScanner({ onScan }) {
   }
 
   return (
-    <div className="bg-gradient-to-r from-white via-white to-sky-50/70 rounded-xl border border-sky-200/90 p-2.5 sm:p-3 shadow-[0_6px_20px_rgba(15,23,42,0.08),0_2px_6px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_25px_rgba(15,23,42,0.12)] transition-shadow duration-200 flex items-center gap-2.5 sm:gap-3 shrink-0">
+    <div className="bg-gradient-to-r from-white via-white to-sky-50/70 rounded-xl border border-sky-200/90 p-2.5 sm:p-3 card-shadow-sm flex items-center gap-2.5 sm:gap-3 shrink-0">
       {/* Vibrant Scan Tag Icon Badge */}
       <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 flex items-center justify-center text-white shrink-0 shadow-md shadow-sky-500/25">
         <ScanTagIcon className="w-4 h-4" />

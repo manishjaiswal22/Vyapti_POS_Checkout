@@ -6,10 +6,8 @@ import POSCheckout from './pages/POSCheckout'
 function App() {
   return (
     <CartProvider>
-      <div className="relative min-h-screen lg:h-screen lg:max-h-screen w-full overflow-y-auto lg:overflow-hidden bg-gradient-to-br from-[#EBF2FA] via-[#F2F7FC] to-[#E5EFF8] flex flex-col font-sans select-none">
-        {/* Soft ambient background lighting accents */}
-        <div className="fixed top-24 left-1/4 w-[500px] h-[260px] bg-sky-300/20 blur-3xl rounded-full pointer-events-none" />
-        <div className="fixed bottom-12 right-1/4 w-[500px] h-[260px] bg-indigo-200/20 blur-3xl rounded-full pointer-events-none" />
+      <div className="relative min-h-screen lg:h-screen lg:max-h-screen w-full overflow-y-auto lg:overflow-hidden bg-[#F1F5F9] flex flex-col font-sans select-none">
+
 
         {/* Top Unified Header Banner */}
         <Header />
