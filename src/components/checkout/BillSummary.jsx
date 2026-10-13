@@ -3,13 +3,11 @@ import {
   BillSummaryIcon,
   TotalItemsIcon,
   SubTotalIcon,
-  DiscountIcon,
-  GstIcon,
   GrandTotalIcon,
 } from '../common/Icons'
 
 export default function BillSummary({ summary, onConfirm, onCancel }) {
-  const { totalItems, subTotal, discount, tax, grandTotal } = summary
+  const { totalItems, subTotal, grandTotal } = summary
 
   return (
     <div className="bg-white rounded-xl border border-slate-200/90 p-3.5 sm:p-4 lg:p-4 xl:p-5 card-shadow flex flex-col justify-between flex-1 min-h-0 overflow-hidden">
@@ -52,32 +50,6 @@ export default function BillSummary({ summary, onConfirm, onCancel }) {
             </div>
             <span className="font-bold text-sky-950 text-[13px] sm:text-[14px]">
               {formatCurrency(subTotal)}
-            </span>
-          </div>
-
-          {/* Discount (Emerald Theme) */}
-          <div className="group flex items-center justify-between px-2.5 py-1.5 sm:py-2 rounded-xl bg-emerald-50/70 hover:bg-emerald-50/95 border border-emerald-100/90 transition-all shadow-2xs">
-            <div className="flex items-center gap-2 text-emerald-950">
-              <div className="w-6.5 h-6.5 rounded-lg bg-emerald-100/90 border border-emerald-200/80 flex items-center justify-center text-emerald-700 shadow-2xs">
-                <DiscountIcon className="w-3.5 h-3.5" />
-              </div>
-              <span className="text-[12.5px] sm:text-[13px] font-semibold text-emerald-900">Discount</span>
-            </div>
-            <span className="font-bold text-emerald-600 text-[13px] sm:text-[14px]">
-              {formatCurrency(discount)}
-            </span>
-          </div>
-
-          {/* Tax (GST) (Amber Theme) */}
-          <div className="group flex items-center justify-between px-2.5 py-1.5 sm:py-2 rounded-xl bg-amber-50/70 hover:bg-amber-50/95 border border-amber-100/90 transition-all shadow-2xs">
-            <div className="flex items-center gap-2 text-amber-950">
-              <div className="w-6.5 h-6.5 rounded-lg bg-amber-100/90 border border-amber-200/80 flex items-center justify-center text-amber-700 shadow-2xs">
-                <GstIcon className="w-3.5 h-3.5" />
-              </div>
-              <span className="text-[12.5px] sm:text-[13px] font-semibold text-amber-900">Tax (GST)</span>
-            </div>
-            <span className="font-bold text-amber-800 text-[13px] sm:text-[14px]">
-              {formatCurrency(tax)}
             </span>
           </div>
         </div>
