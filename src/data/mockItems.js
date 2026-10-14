@@ -1,6 +1,3 @@
-/**
- * Sample items data matching POS catalog
- */
 
 export const INITIAL_CART_ITEMS = [
   {

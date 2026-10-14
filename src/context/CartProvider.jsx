@@ -4,8 +4,6 @@ import { INITIAL_CART_ITEMS } from '../data/mockItems'
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(INITIAL_CART_ITEMS)
-  const [discountPercent, setDiscountPercent] = useState(0)
-  const [taxPercent, setTaxPercent] = useState(0)
 
   const addItem = (item) => {
     setItems((prev) => {
@@ -42,19 +40,14 @@ export function CartProvider({ children }) {
   const summary = useMemo(() => {
     const totalItems = items.length
     const subTotal = items.reduce((sum, item) => sum + item.mrp * item.quantity, 0)
-    const discount = (subTotal * discountPercent) / 100
-    const taxableAmount = subTotal - discount
-    const tax = (taxableAmount * taxPercent) / 100
-    const grandTotal = taxableAmount + tax
+    const grandTotal = subTotal
 
     return {
       totalItems,
       subTotal,
-      discount,
-      tax,
       grandTotal,
     }
-  }, [items, discountPercent, taxPercent])
+  }, [items])
 
   return (
     <CartContext.Provider
@@ -65,10 +58,6 @@ export function CartProvider({ children }) {
         updateQuantity,
         removeItem,
         clearCart,
-        discountPercent,
-        setDiscountPercent,
-        taxPercent,
-        setTaxPercent,
       }}
     >
       {children}
