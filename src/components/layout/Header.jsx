@@ -42,7 +42,7 @@ export default function Header() {
                 POS Checkout
               </h1>
               <p className="text-[11px] sm:text-[12px] md:text-[13.5px] text-[#64748B] font-medium leading-none mt-1 truncate">
-                Scan item tags to add products to bill
+                Scan EPC to add products to bill
               </p>
             </div>
           </div>

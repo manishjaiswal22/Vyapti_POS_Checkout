@@ -1,36 +1,52 @@
 import { useState, useMemo } from 'react'
 import { CartContext } from './CartContext'
-import { INITIAL_CART_ITEMS } from '../data/mockItems'
 
 export function CartProvider({ children }) {
-  const [items, setItems] = useState(INITIAL_CART_ITEMS)
+  const [items, setItems] = useState([])
 
   const addItem = (item) => {
+    const key = item.id || (item.size ? `${item.itemCode}_${item.size}` : item.itemCode)
+    const addQty = item.quantity || 1
+
     setItems((prev) => {
-      const existing = prev.find((i) => i.itemCode === item.itemCode)
+      const existing = prev.find((i) => (i.id || i.itemCode) === key)
       if (existing) {
         return prev.map((i) =>
-          i.itemCode === item.itemCode ? { ...i, quantity: i.quantity + 1 } : i
+          (i.id || i.itemCode) === key
+            ? {
+                ...i,
+                quantity: i.quantity + addQty,
+                epcs: [...(i.epcs || []), ...(item.epcs || [item.epc].filter(Boolean))],
+              }
+            : i
         )
       }
-      return [...prev, { ...item, quantity: 1 }]
+      return [
+        ...prev,
+        {
+          ...item,
+          id: key,
+          quantity: addQty,
+          epcs: item.epcs || (item.epc ? [item.epc] : []),
+        },
+      ]
     })
   }
 
-  const updateQuantity = (itemCode, qty) => {
+  const updateQuantity = (key, qty) => {
     if (qty <= 0) {
-      removeItem(itemCode)
+      removeItem(key)
       return
     }
     setItems((prev) =>
       prev.map((item) =>
-        item.itemCode === itemCode ? { ...item, quantity: qty } : item
+        (item.id || item.itemCode) === key ? { ...item, quantity: qty } : item
       )
     )
   }
 
-  const removeItem = (itemCode) => {
-    setItems((prev) => prev.filter((item) => item.itemCode !== itemCode))
+  const removeItem = (key) => {
+    setItems((prev) => prev.filter((item) => (item.id || item.itemCode) !== key))
   }
 
   const clearCart = () => {

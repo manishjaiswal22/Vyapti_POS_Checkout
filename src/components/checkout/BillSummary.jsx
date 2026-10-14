@@ -93,7 +93,10 @@ export default function BillSummary({ summary, onConfirm, onCancel }) {
           {/* CANCEL BUTTON */}
           <button
             type="button"
-            onClick={onCancel}
+            onClick={(e) => {
+              e.currentTarget.blur()
+              onCancel()
+            }}
             className="group relative h-[38px] sm:h-[40px] rounded-xl bg-gradient-to-r from-[#DC2626] via-[#EF4444] to-[#F87171] hover:from-[#B91C1C] hover:to-[#DC2626] active:scale-[0.98] text-white font-bold text-[12px] sm:text-[12.5px] tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-sm shadow-rose-500/25 transition-all duration-150 cursor-pointer"
           >
             <div className="w-4 h-4 rounded-full bg-white/20 border border-white/30 flex items-center justify-center group-hover:scale-105 transition-transform">

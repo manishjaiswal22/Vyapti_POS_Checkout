@@ -12,8 +12,9 @@ export default function ItemTable({ items, onUpdateQuantity, onRemove, onClearAl
           <thead className="sticky top-0 z-10 bg-gradient-to-r from-[#1E293B] via-[#1E2D48] to-[#0F172A] shadow-xs">
             <tr className="text-white text-[11px] sm:text-[12px] font-semibold tracking-wide uppercase">
               <th className="py-2.5 px-2.5 sm:px-3 text-center w-14 sm:w-16">SR. NO.</th>
-              <th className="py-2.5 px-2.5 sm:px-3 w-24 sm:w-28">ITEM CODE</th>
+              <th className="py-2.5 px-2.5 sm:px-3 w-24 sm:w-28">EAN</th>
               <th className="py-2.5 px-2.5 sm:px-3">ITEM DESCRIPTION</th>
+              <th className="py-2.5 px-2.5 sm:px-3 text-center w-14 sm:w-16">SIZE</th>
               <th className="py-2.5 px-2.5 sm:px-3 text-center w-28 sm:w-32">QUANTITY</th>
               <th className="py-2.5 px-2.5 sm:px-3 text-right w-20 sm:w-24">MRP (₹)</th>
               <th className="py-2.5 px-2.5 sm:px-3 text-right w-20 sm:w-24">TOTAL (₹)</th>
@@ -23,14 +24,14 @@ export default function ItemTable({ items, onUpdateQuantity, onRemove, onClearAl
           <tbody className="divide-y divide-[#E8EFF6]">
             {items.length === 0 ? (
               <tr>
-                <td colSpan="7" className="py-14 text-center text-slate-400 text-[12px]">
-                  No items scanned yet. Scan a tag above or enter an item code.
+                <td colSpan="8" className="py-14 text-center text-slate-400 text-[12px]">
+                  No items scanned yet. Scan an EPC above.
                 </td>
               </tr>
             ) : (
               items.map((item, index) => (
                 <ItemRow
-                  key={item.itemCode}
+                  key={item.id || item.itemCode || index}
                   index={index}
                   item={item}
                   onUpdateQuantity={onUpdateQuantity}
@@ -53,7 +54,10 @@ export default function ItemTable({ items, onUpdateQuantity, onRemove, onClearAl
 
         <button
           type="button"
-          onClick={onClearAll}
+          onClick={(e) => {
+            e.currentTarget.blur()
+            onClearAll()
+          }}
           disabled={items.length === 0}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-rose-200 text-rose-600 font-bold text-[11px] hover:bg-rose-500 hover:text-white hover:border-rose-500 active:scale-95 disabled:opacity-40 disabled:pointer-events-none transition-all shadow-2xs cursor-pointer"
         >
